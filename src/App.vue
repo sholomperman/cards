@@ -1,11 +1,13 @@
 <script setup>
   import Card from './components/Card.vue';
+  import Nav from './components/Nav.vue';
 </script>
 
 <template>
-<div class="app">
-  <Card />
-</div>
+  <Nav />
+  <div class="app">
+    <Card />
+  </div>
 </template>
 
 <style>
@@ -16,10 +18,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     flex-wrap: wrap;
   }
 </style>
