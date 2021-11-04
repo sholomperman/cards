@@ -24,7 +24,7 @@ export default {
   <div class="container" v-for="(value, index) in cards" :key="index">
     <div class="imgContainer">
       <img class="img" :alt="value.user" :src="value.largeImageURL" />
-      <p class="tags">{{value.tags}}</p>
+      <p class="tags">#{{value.tags.split(', ').join(' #')}}</p>
     </div>
     <div class="cardBottom">
       <div class="likesCon">
@@ -42,6 +42,7 @@ export default {
       </div>
     </div>
   </div>
+  <p>{{arr}}</p>
 </template>
 
 <style scoped>
@@ -122,5 +123,8 @@ export default {
     margin-right: 5px;
     background-color: lightgreen;
     border-radius: 50% 50% 50% 0;
+  }
+  .tags {
+    width: 250px;
   }
 </style>
