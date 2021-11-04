@@ -10,7 +10,7 @@ export default {
       try {
         const res = await axios.get('https://pixabay.com/api/?key=24139602-279077e1bba33438ab5b9b063&q=yellow+flowers&i');
 
-        this.cards = res.data.hits.slice(0, 4);
+        this.cards = res.data.hits.slice(0, 16);
         console.log(this.result)
 
       } catch(error) {
@@ -21,8 +21,11 @@ export default {
 </script>
 
 <template>
-  <div class="imgContainer" v-for="(value, index) in cards" :key="index">
-    <img @click:href="value.pageURL" class="img" :alt="value.user" :src="value.largeImageURL" />
+  <div class="container" v-for="(value, index) in cards" :key="index">
+    <div class="imgContainer">
+      <img class="img" :alt="value.user" :src="value.largeImageURL" />
+      <p class="tags">{{value.tags}}</p>
+    </div>
     <div class="cardBottom">
       <div class="likesCon">
         <div class="heartIcon">
@@ -49,21 +52,25 @@ export default {
 .txt {
   color: black;
 }
-.imgContainer {
+.container {
   padding: 10px;
-  margin: 10px 0 0 0;
+  margin: 10px auto;
   background-color: rgb(163, 154, 154);
   box-shadow: 5px 5px 15px coral;
   border-radius: 15px;
-  height: 400px;
-  width: 350px;
+  height: 350px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+.imgContainer {
+  width: 0px;
+}
   .img {
-    width: 350px;
+    width: 250px;
     border-radius: 10px;
+
   }
 
   .likesCon {
